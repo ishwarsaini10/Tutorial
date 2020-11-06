@@ -61,14 +61,14 @@ int main(){
     myfile.open("series1.dat");
     std::cout <<  std::setprecision(7) << std::setw(10) ;
 
-    for(int N=1;  N<=10000; N++){
+    for(int N=1;  N<=100; N++){
         s1_final  = series1(N);
         s2_final  = series2(N);
         s3_final  = series3(N);
-        std::cout <<  s1_final  <<  "\t"  <<  s2_final  <<  "\t"  <<  s3_final <<"\t" <<  log10(N) << "\t" << log10(abs((s1_final-s3_final)/s3_final)) <<  std::endl;
+//        std::cout <<  s1_final  <<  "\t"  <<  s2_final  <<  "\t"  <<  s3_final <<"\t" <<  log10(N) << "\t" << log10(abs((s1_final-s3_final)/s3_final)) <<  std::endl;
         //myfile <<  s1_final  <<  "\t"  <<  s2_final  <<  "\t"  <<  s3_final  <<  std::endl;
 
-        //myfile <<  log10(N)  <<  "\t"  <<  log10(abs((s1_final-s3_final)/s3_final))  <<  std::endl;
+        myfile <<  log10(N)  <<  "\t"  <<  log10(abs((s1_final-s3_final)/s3_final))  <<  std::endl;
         //cout <<  log10(N)  <<  "\t"  <<  log10(abs((s1_final-s3_final)/s3_final))  <<  std::endl;
     }
     myfile.close();
