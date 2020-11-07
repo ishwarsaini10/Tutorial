@@ -355,3 +355,60 @@ b               = -1675.98
 c               = 0.680895       
 
 BREAK: Undefined value during function evaluation
+
+*******************************************************************************
+Sat Nov  7 18:23:39 2020
+
+
+FIT:    data read from "aprroximation.txt"
+        format = z
+        #datapoints = 20
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x)=x**a+b
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b            
+   0 1.9458992034e+21   0.00e+00  2.30e+01    1.000000e+00   1.000000e+00
+
+Current data point
+=========================
+#               = 2 out of 20
+x               = 3.50721e+07    
+z               = 2.86979e+09    
+
+Current set of parameters
+=========================
+a               = 3.50721e+07    
+b               = 1.50838e+08    
+
+BREAK: Undefined value during function evaluation
+
+*******************************************************************************
+Sat Nov  7 18:26:18 2020
+
+
+FIT:    data read from "aprroximation.txt"
+        format = z
+        x range restricted to [-10.0000 : 10.0000]
+        #datapoints = 10
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x)=a/(x**b)
+fitted parameters initialized with current variable values
+
+
+Current data point
+=========================
+#               = 2 out of 10
+x               = 3.50721e+07    
+z               = 2.86979e+09    
+
+Current set of parameters
+=========================
+a               = 3.50721e+07    
+b               = 1.50838e+08    
+
+BREAK: Undefined value during function evaluation
