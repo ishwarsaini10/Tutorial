@@ -221,3 +221,137 @@ correlation matrix of the fit parameters:
                 a      b      
 a               1.000 
 b              -0.864  1.000 
+
+
+*******************************************************************************
+Sat Nov  7 11:40:48 2020
+
+
+FIT:    data read from "sin_series_07_11_2020.txt"
+        format = z
+        x range restricted to [0.00000 : 20.0000]
+        #datapoints = 20
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x)=a/(x**b)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b            
+   0 9.1591301432e+06   0.00e+00  2.62e-01    1.000000e+00   1.000000e+00
+
+Current data point
+=========================
+#               = 2 out of 20
+x               = 577.454        
+z               = 1150.79        
+
+Current set of parameters
+=========================
+a               = 577.454        
+b               = -1639.31       
+
+BREAK: Undefined value during function evaluation
+
+*******************************************************************************
+Sat Nov  7 11:41:33 2020
+
+
+FIT:    data read from "sin_series_07_11_2020.txt"
+        format = z
+        x range restricted to [0.00000 : 20.0000]
+        #datapoints = 20
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x) [0:20]
+	f(x)=a/(x**b)
+fitted parameters initialized with current variable values
+
+
+
+*******************************************************************************
+Sat Nov  7 11:41:47 2020
+
+
+FIT:    data read from "sin_series_07_11_2020.txt"
+        format = z
+        x range restricted to [0.00000 : 20.0000]
+        #datapoints = 20
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x)=a/(x**b)
+fitted parameters initialized with current variable values
+
+
+Current data point
+=========================
+#               = 2 out of 20
+x               = 577.454        
+z               = 1150.79        
+
+Current set of parameters
+=========================
+a               = 577.454        
+b               = -1639.31       
+
+BREAK: Undefined value during function evaluation
+
+*******************************************************************************
+Sat Nov  7 11:43:06 2020
+
+
+FIT:    data read from "sin_series_07_11_2020.txt"
+        format = z
+        #datapoints = 20
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x)=a/(x**b)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b            
+   0 9.1591301432e+06   0.00e+00  2.62e-01    1.000000e+00   1.000000e+00
+
+Current data point
+=========================
+#               = 2 out of 20
+x               = 577.454        
+z               = 1150.79        
+
+Current set of parameters
+=========================
+a               = 577.454        
+b               = -1639.31       
+
+BREAK: Undefined value during function evaluation
+
+*******************************************************************************
+Sat Nov  7 12:32:06 2020
+
+
+FIT:    data read from "sin_series_07_11_2020.txt"
+        format = z
+        #datapoints = 20
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x)=(a/x**b)+(x**c)*(10**-7)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             c            
+   0 9.1591301368e+06   0.00e+00  2.14e-01    1.000000e+00   1.000000e+00   1.000000e+00
+
+Current data point
+=========================
+#               = 2 out of 20
+x               = 568.944        
+z               = 1150.79        
+
+Current set of parameters
+=========================
+a               = 568.944        
+b               = -1675.98       
+c               = 0.680895       
+
+BREAK: Undefined value during function evaluation
