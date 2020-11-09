@@ -1,0 +1,9 @@
+[0] Config.pm:304> INFO - This is Biber 2.14 (beta)
+[0] Config.pm:307> INFO - Logfile is 'course_work_tutorial_report.blg'
+[48] biber:322> INFO - === Mon Nov  9, 2020, 15:41:54
+[79] Biber.pm:415> INFO - Reading 'course_work_tutorial_report.bcf'
+[119] Biber.pm:943> INFO - Found 0 citekeys in bib section 0
+[123] Utils.pm:293> WARN - The file 'course_work_tutorial_report.bcf' does not contain any citations!
+[127] bbl.pm:652> INFO - Writing 'course_work_tutorial_report.bbl' with encoding 'UTF-8'
+[127] bbl.pm:755> INFO - Output to course_work_tutorial_report.bbl
+[128] Biber.pm:128> INFO - WARNINGS: 1

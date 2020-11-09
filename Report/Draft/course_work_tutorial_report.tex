@@ -1,0 +1,151 @@
+\documentclass[a4,12pt]{article}
+\usepackage{setspace}
+
+%\usepackage{fullpage}
+%\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage[margin=1in,paperwidth=8.5in,paperheight=11in,scale=0.75,bmargin=2.0cm,footnotesep=1cm]{geometry}
+\usepackage{amsfonts,float,textcomp}
+\usepackage{graphicx} %to include images
+\usepackage[font={small}]{caption}
+%\usepackage{apacite}
+%\usepackage{natbib}
+\usepackage[colorlinks=true, citecolor=blue]{hyperref}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{sidecap}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{multicol}
+\usepackage{subcaption}
+\usepackage[italic]{hepnames}
+\usepackage{amssymb}
+\usepackage{amsmath, mathtools}
+\allowdisplaybreaks
+%\linespread
+%\usepackage{mciteplus}
+\usepackage{mathtools}
+\usepackage{physics}
+\usepackage{braket}
+\usepackage{gensymb}
+\usepackage{slashed}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[backend=biber,style=numeric,autocite=plain,sorting=none]{biblatex}
+\addbibresource{References.bib}
+%\usepackage{nomencl}
+\usepackage[nocfg]{nomencl}
+\makenomenclature
+\usepackage{setspace}
+\usepackage{multirow}
+\usepackage{empheq}
+\usepackage{longtable}
+\usepackage{chngcntr}
+\counterwithin{figure}{section}
+%\usepackage[backend=bibtex]{biblatex}
+%\makenomenclature
+\usepackage{titlesec}
+%\newcommand{\sectionbreak}{\clearpage}
+\newcommand{\Lagr}{\mathcal{L}}
+\numberwithin{equation}{subsection}
+%\renewcommand{\nomname}{\centering List of Symbols}
+\renewcommand*{\nompreamble}{\begin{multicols}{2}}
+\renewcommand*{\nompostamble}{\end{multicols}}
+\setlength{\columnsep}{3em}
+\setlength{\nomitemsep}{0.02cm}
+\usepackage[most]{tcolorbox}
+\newtcolorbox{mybox}[2][breakable]{%
+  attach boxed title to top center
+               = {yshift=-8pt},
+  colback      = blue!5!white,
+  colframe     = blue!75!black,
+  fonttitle    = \bfseries,
+  colbacktitle = blue!85!black,
+  title        = #2,#1,
+  enhanced,
+}
+\newcommand\MTkillspecial[1]{% helper macro
+\bgroup
+\catcode`\&=9
+\let\\\relax%
+\scantokens{#1}%
+\egroup
+}
+\DeclarePairedDelimiter\brkbraces\{\}
+\reDeclarePairedDelimiterInnerWrapper\brkbraces{star}{
+\mathopen{#1\vphantom{\MTkillspecial{#2}}\kern-\nulldelimiterspace\right.}
+#2
+\mathclose{\left.\kern-\nulldelimiterspace\vphantom{\MTkillspecial{#2}}#3}}
+\usepackage[toc,page]{appendix}
+\DeclareUnicodeCharacter{2009}{ }
+\newcommand{\taninv}{\tan^{-1}}
+\newcommand{\sininv}{\sin^{-1}}
+\newcommand{\cosinv}{\cos^{-1}}
+
+%\usepackage[scale=0.75,bmargin=1cm,footnotesep=1cm]{geometry}
+%\usepackage[table]{xcolor}
+%\usepackage{tabularx}
+\setcounter{secnumdepth}{4}
+\makeatletter
+\setlength{\@fptop}{0pt}
+\makeatother
+\usepackage{atbegshi}% http://ctan.org/pkg/atbegshi
+\AtBeginDocument{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
+\onehalfspacing
+\begin{document}
+%\mbox{}
+\begin{titlepage}
+    \begin{center}
+        \title{\textbf{Ph.D. Coursework Tutorial Report} \\ Error in Floating Point Computations}
+        \vspace{1.5cm}
+        %\subtitle{Phenomenoloy of Neutrino Oscillations using Long Baseline Neutrino Experiments}
+		\author{\textsc{\textbf{Ishwar Singh}}\\ \\ \textit{ Submitted to:} \textsc{\textbf{Prof. Awadesh Prasad}}}
+		\vspace{0.7cm}
+		\date{\today}
+		\maketitle
+		\thispagestyle{empty}
+				\begin{figure}[H]
+				\begin{center}
+        \includegraphics[scale=0.4]{University_of_delhi_logo.png}
+				\end{center}
+				\end{figure}
+       	\vspace{0.8cm}
+       	\begin{center}
+        Department of Physics and Astrophysics\\
+        University of Delhi\\
+        New Delhi, India\\
+				\end{center}
+
+
+    \end{center}
+\end{titlepage}
+\printnomenclature[3em]
+\tableofcontents
+\thispagestyle{empty}
+\listoffigures
+%\listoftables
+\thispagestyle{empty}
+%\mbox
+\newpage
+\clearpage
+\pagebreak
+\setcounter{page}{1}
+
+\section{Introduction}
+Recently, a new category, computational physics, has been added to the traditional physics classification scheme. This new category acts as a bridge between the traditional theoretical and experimental physics. Computer simulations have become an intergral part of not only every branch of physics but also in other disciplines of science. With each advancement of computer technology, the usage of comupters for scientific computation has also increased substantially.\\
+\newline
+Although, computers are very powerful, but they have limitations. The representation of real numbers in computers is one of the most import limitations of computers. The computer is a finite system. This inability of the computers i.e. to store `exact' real numbers, gives rise to the errors in floating point computations.\\
+\newline
+These errors, although small ($ \epsilon \approx 10^{-7}$ for single precision and $ \epsilon \approx 10^{-15}$ for double precision), propagates after every usage, might lead to unexpected results (known as garbage values). Therefore, it is imperative to study the errors involved in scientific computations before actually jumping into the field which requires computations.
+
+\section{Representation of Numbers in Computers}
+Computers are binary machines i.e. they understands sequences of binary integers (known as bits) i.e. zeros (0's) and ones (1's). All computations are also done using these arrays of zeros (0's) and ones (1's). These long arrays of binary digits are good only for computers, but it is not user friendly. A user enters his data in decimal numbers and expects his answer in decimal numbers only. The bits are treated together to make a word length. Different computers might have different word lenghts, but this length is generally expressed in bytes, with 
+
+$$1 \text{ byte} \equiv 1 \text{B} = 8 \text{ bits}.$$
+\newline
+This seems a right time to introduce the single precision and double precision numbers. A single precision number is stored in an array of 32-bits i.e. 4 bytes while the double precision number is stored in an array of 64-bits are 8 bytes. These two terms will reoccur many a times in this report.
+
+
+
+
+\end{document}
