@@ -1,2 +1,9 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
 \BOOKMARK [1][-]{section.2}{Representation of Numbers in Computers}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Integers}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Real Numbers}{section.2}% 4
+\BOOKMARK [1][-]{section.3}{Errors in Floating Point Computations}{}% 5
+\BOOKMARK [2][-]{subsection.3.1}{Types of Errors}{section.3}% 6
+\BOOKMARK [3][-]{subsubsection.3.1.1}{Bad Theory or Blunders}{subsection.3.1}% 7
+\BOOKMARK [3][-]{subsubsection.3.1.2}{Random Errors}{subsection.3.1}% 8
+\BOOKMARK [2][-]{subsection.3.2}{Approximation Errors}{section.3}% 9

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.10.16)  9 NOV 2020 18:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.10.16)  10 NOV 2020 18:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1412,7 +1412,7 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 106
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<University_of_delhi_logo.png, id=51, 559.3698pt x 551.1792pt>
+<University_of_delhi_logo.png, id=79, 559.3698pt x 551.1792pt>
 File: University_of_delhi_logo.png Graphic file (type png)
 <use University_of_delhi_logo.png>
 Package pdftex.def Info: University_of_delhi_logo.png  used on input line 109.
@@ -1446,54 +1446,94 @@ Underfull \hbox (badness 10000) in paragraph at lines 135--140
  []
 
 LaTeX Info: Redefining \HepProcess on input line 141.
-LaTeX Info: Redefining \HepProcess on input line 151.
-LaTeX Info: Redefining \HepProcess on input line 151.
+
+Underfull \hbox (badness 10000) in paragraph at lines 144--147
+
+ []
+
+LaTeX Info: Redefining \HepProcess on input line 148.
+LaTeX Info: Redefining \HepProcess on input line 148.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.151 \end{document}
-                     [1
+l.148  \subsection{Integers}
+                             [1
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 151.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 151.
+LaTeX Info: Redefining \HepProcess on input line 148.
+LaTeX Info: Redefining \HepProcess on input line 152.
+
+Underfull \hbox (badness 10000) in paragraph at lines 153--156
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 159--163
+
+ []
+
+LaTeX Info: Redefining \HepProcess on input line 163.
+LaTeX Info: Redefining \HepProcess on input line 163.
+pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.163 
+       [2]
+LaTeX Info: Redefining \HepProcess on input line 180.
+LaTeX Info: Redefining \HepProcess on input line 183.
+LaTeX Info: Redefining \HepProcess on input line 186.
+LaTeX Info: Redefining \HepProcess on input line 189.
+LaTeX Info: Redefining \HepProcess on input line 191.
+LaTeX Info: Redefining \HepProcess on input line 191.
+ [3]
+LaTeX Info: Redefining \HepProcess on input line 192.
+LaTeX Info: Redefining \HepProcess on input line 208.
+LaTeX Info: Redefining \HepProcess on input line 208.
+ [4]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 208.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 208.
  (./course_work_tutorial_report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 151.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 151.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 208.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 208.
 Package rerunfilecheck Info: File `course_work_tutorial_report.out' has not cha
 nged.
-(rerunfilecheck)             Checksum: B0D1DC536CF391EB61C771F4A358A7D7;120.
+(rerunfilecheck)             Checksum: 8AA9B0FB24189C8636A82FC4CAE8DE12;596.
 Package logreq Info: Writing requests to 'course_work_tutorial_report.run.xml'.
 
 \openout1 = `course_work_tutorial_report.run.xml'.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 151.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 208.
  ) 
 Here is how much of TeX's memory you used:
- 36334 strings out of 481239
- 696757 string characters out of 5920376
- 1417052 words of memory out of 5000000
- 50957 multiletter control sequences out of 15000+600000
- 552484 words of font info for 78 fonts, out of 8000000 for 9000
+ 36377 strings out of 481239
+ 697377 string characters out of 5920376
+ 1419175 words of memory out of 5000000
+ 50985 multiletter control sequences out of 15000+600000
+ 554712 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 67i,8n,108p,963b,789s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 67i,12n,108p,963b,789s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx12
-00.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/t
-exmf/fonts/type1/public/cm-super/sfbx2074.pfb></usr/share/texmf/fonts/type1/pub
-lic/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm144
-0.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm2074.pfb></usr/share/te
-xmf/fonts/type1/public/cm-super/sfti1440.pfb></usr/share/texmf/fonts/type1/publ
-ic/cm-super/sfxc1440.pfb>
-Output written on course_work_tutorial_report.pdf (3 pages, 1237309 bytes).
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/
+share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/ty
+pe1/public/cm-super/sfbx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/
+sfbx2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/s
+hare/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/typ
+e1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/s
+frm2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb></usr/sh
+are/texmf/fonts/type1/public/cm-super/sfti1440.pfb></usr/share/texmf/fonts/type
+1/public/cm-super/sfxc1440.pfb>
+Output written on course_work_tutorial_report.pdf (6 pages, 1329107 bytes).
 PDF statistics:
- 126 PDF objects out of 1000 (max. 8388607)
- 81 compressed objects within 1 object stream
- 5 named destinations out of 1000 (max. 500000)
- 178 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 200 PDF objects out of 1000 (max. 8388607)
+ 146 compressed objects within 2 object streams
+ 17 named destinations out of 1000 (max. 500000)
+ 234 words of extra memory for PDF output out of 10000 (max. 10000000)
 
