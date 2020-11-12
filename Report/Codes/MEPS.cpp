@@ -4,10 +4,10 @@ using namespace std;
 
 // Function for Machine Epsilon with an
 // initial value provided as EPS.
-void machineEpsilon(double EPS)
+void machineEpsilon(float EPS)
 {
     // taking a floating type variable
-    double prev_epsilon;
+    float prev_epsilon;
 
     // run until condition satisfy
     while ((1+EPS) != 1)

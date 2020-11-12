@@ -24,6 +24,7 @@
 \allowdisplaybreaks
 %\linespread
 %\usepackage{mciteplus}
+\usepackage{listings}
 \usepackage{mathtools}
 \usepackage{physics}
 \usepackage{braket}
@@ -44,6 +45,38 @@
 \counterwithin{figure}{section}
 %\usepackage[backend=bibtex]{biblatex}
 %\makenomenclature
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+
+
+
+
+
 \usepackage{titlesec}
 %\newcommand{\sectionbreak}{\clearpage}
 \newcommand{\Lagr}{\mathcal{L}}
@@ -96,7 +129,7 @@
 %\mbox{}
 \begin{titlepage}
     \begin{center}
-        \title{\textbf{Ph.D. Coursework Tutorial Report} \\ Error in Floating Point Computations}
+        \title{\textbf{Ph.D. Coursework Tutorial Report} \\ Errors and Uncertainties in Computations}
         \vspace{1.5cm}
         %\subtitle{Phenomenoloy of Neutrino Oscillations using Long Baseline Neutrino Experiments}
 		\author{\textsc{\textbf{Ishwar Singh}}\\ \\ \textit{ Submitted to:} \textsc{\textbf{Prof. Awadesh Prasad}}}
@@ -177,20 +210,19 @@ This seems a right time to introduce the single precision and double precision n
 \label{tab:tabel1}
 \end{table}
 
-\section{Errors in Floating Point Computations}
+\section{Types of Errors}
 Every measurement is prone to errors. Sometimes these errors are caused by the researcher's negligence, some measurement are prone to random errors. Similarly, some errors are introduced by the computers used to perform a scientific computations. This section will deal with different types of errors and uncertainties introduced due to computer computations.
-
-\subsection{Types of Errors}
+\newline
 Let's assume that a computation task is finished after $n$ complex loops or steps. Let $p$ be the probability of success of each step, then the joint probability of the complete program/code is $P=p^{n}$. If $p = 0.9993$ i.e. very likely to be true, after $n=1000$ steps, the probability of the code to return correct result is $P \approx \frac{1}{2}$ i.e. the result is equally likely to give garbage values (wrong results). The most dominant errors in floating point computations are discussed in the upcoming sections.
 
-\subsubsection{Bad Theory or Blunders}
+\subsection{Bad Theory or Blunders}
 These errors are introduced due to typographical errors which might cause syntax errors in the codes, running a different program or having a fault in the reasoning behind the code, using data which has errors in itself which is not known to the programmer. These errors can only be resolved by the programmer itself. One of the best ways to avoid such errors is to verify if the code is doing what the programmer every now and then.
 
-\subsubsection{Random Errors}
+\subsection{Random Errors}
 These errors are caused by random events such as fluctuations in electronic components of the system, cosmic ray interactions inside the system (very very unlikely though) or if someone pulls the plug of your system and the system shuts down. All these errors are very unlikely for small codes or programs. But these errors might be relevant for a week long simulations. This error is irrelevant for this project.
 
 \subsection{Approximation Errors}
-Consider we will have to use $\sin(x)$ in our program. Most of programming language provides an in-built function which returns the values of these trigonometric functions. Mathematically these functions are actually an infinite series e.g. 
+Consider we will have to use $\sin(x)$ in our program. Most of programming languages provides an in-built function which returns the values of such trigonometric functions. Mathematically these functions are actually an infinite series e.g. 
 $$\sin(x) = \sum^{\infty}_{n=1} \frac{(-1)^{n-1}x^{2n-1}}{(2n-1)!} (\text{ exact }).$$
 But it is not possible to compute all the terms in these functions. Most of the algorithms compute these sums to a finite number of terms i.e.
 \begin{align}
@@ -199,7 +231,270 @@ But it is not possible to compute all the terms in these functions. Most of the 
  \end{align}  
  where $\epsilon(x,N)$ is known as the \textit{approximation error} which is given as,
 $$\epsilon(x,N) = \sum^{\infty}_{N+1} \frac{(-1)^{n-1}x^{2n-1}}{(2n-1)!} .$$
-As these errors arise from the algorithms used to approximate the mathematics, these errors are also known as \textit{algorithmic errors}.
+As these errors arise from the algorithms used to approximate the mathematics, these errors are also known as \textit{algorithmic errors}. It seems reasonable to say that approximation errors decreases with the increasing value of $N$ and vanish in the limit where $N \to \infty$. In general, the approximation errors, $\epsilon_{approx}$, varies as, 
+$$\epsilon_{approx} = \frac{\alpha}{N^{\beta}}.$$
+where $\alpha$ and $\beta$ are arbitrary constants.
+
+\subsection{Round-off Errors}
+A finite number of bits is available with the computer (23 bits for single precision and 53 bits for double precision data types) to store the mantissa of any number stored in it. The float data type can hold numbers up to 7 significant figure while the double data type can hold up to 16 significant numbers. If a float type variable is asked to store a number with 10 significant digits, computer will store a rounded-off 7 significant digit number in it's memory. The same happen with the double data type \footnote[1]{If the significant digits of number is greater than 16.}. This rounding off the numbers introduces errors in the computations which grows up with each arithmetic operation. The computer stores an exact number `$a$' is stored as `$a_c$' such that 
+$$a_c = a(1+\epsilon_a),$$
+where $\epsilon_a$ is the relative round off error in $a$. 
+
+\subsubsection{Round-off Error in a Single Step}
+Division of two numbers, as calculated by the computer is given as,
+
+\begin{align}
+a=\frac{b}{c} & \Rightarrow a_c = \frac{b_c}{c_c} = \frac{b(1+\epsilon_b)}{c(1+\epsilon_c)} && \\
+& \Rightarrow \frac{a_c}{a} = \frac{1+\epsilon_b}{1+\epsilon_c} \approx (1+\epsilon_b)(1-\epsilon_c) \approx 1+ \epsilon_b - \epsilon_c &&\\
+& \Rightarrow \frac{a_c}{a} \approx 1 + |\epsilon_b| + |\epsilon_c| &&
+\end{align}
+Notice however that in the above derivation very small $\epsilon^2$ term has been ignored and the modulus is used to find the maximum error in the calculation. Note also that this is the basic error propagation rule which we use in our laboratory calculations.
+
+\subsubsection{Round-off Error Propagation After N Steps}
+As we have seen in the previous section, the round-off error accumulates after each calculational step. In general, If there are $N$ calculational steps involved in an algorithm, the total relative error $\epsilon_{ro}$ becomes,
+
+$$\epsilon_{ro} \simeq \sqrt N \epsilon_m.$$
+where $\epsilon_m$ is the machine epsilon. Machine epsilon is the minimum number such that a system can differentiate $1.0$ from $1.0+\epsilon_m$. In other words,
+
+$$1.0 + \epsilon_m > 1.0.$$
+ This is equivalent to the least count of any apparatus we use in our laboratory. This $\epsilon_m \simeq 10^{-7}$ and $\epsilon_m \simeq 10^{-16}$ for float and double data type respectively. Machine epsilon plays an important role in defining errors in scientific computations. This machine epsilon is the upper bound of the round off errors.
+\newline
+The fact that round-off errors accumulates with each computational steps, makes it necessary to study the variation of these errors with N. This helps the programmer to figure out when to stop the iteration.
+
+\subsubsection{Subtractive Cancellation}
+This is actually an arithmetic error which arises if two large and approximately equal numbers are subtracted, the relative error in the answer increases after each step. Consider the subtraction of two numbers,
+
+\begin{align}
+a = b - c & \Rightarrow a_c \simeq b_c - c_c \simeq b(1+\epsilon_b) - c(1+\epsilon_c) && \\
+& \Rightarrow \frac{a_c}{a} \simeq 1+ \epsilon_b \frac{b}{a} - \epsilon_c \frac{c}{a} .&&
+\end{align}
+It can be observed very clearly that if both the numbers are approximately same i.e. $a \simeq b$, relative error in a becomes,
+
+\begin{equation}
+  \frac{a_c}{a} = 1 + \epsilon_a \simeq 1+ \frac{b}{a}(\epsilon_b-\epsilon_c) \simeq 1+\frac{b}{a} \text{max}(|\epsilon_b|, |\epsilon_c|)
+\end{equation}
+Although the relative errors in $b$ and $c$ are subtracted, but final relative error is multiplied by a large factor $\frac{b}{a}$ which ultimately magnifies the error.
+
+\subsubsection{Implementation and Assessment }
+\paragraph{Machine Epsilon:}
+Listing \ref{list1} shows the code used calculate the machine epsilon of double data types. The output gives the value of machine error as $2.22045e-16$. A similar code was run to calculate the machine epsilon for float data type, which was found out to be $1.19209e-07$.  
+
+\begin{lstlisting}[language=C++, caption= Code to calculate the machine epsilon of double data types., label= list1]
+#include<iostream>
+#include <cfloat>
+using namespace std;
+
+// Function for Machine Epsilon with an
+// initial value provided as EPS.
+void machineEpsilon(double EPS)
+{
+    // taking a floating type variable
+    double prev_epsilon;
+
+    // run until condition satisfy
+    while ((1+EPS) != 1)
+    {
+        // copying value of epsilon into previous epsilon
+        prev_epsilon = EPS;
+
+        // dividing epsilon by 2
+        EPS /=2;
+    }
+
+    // print output of the program
+    cout << "Machine Epsilon is : " << prev_epsilon << endl;
+}
+// Driver Code
+int main()
+{
+    // calling function which calculate machine epsilon
+    // with initial value provided as 0.5
+    machineEpsilon(0.5);
+
+    return 0;
+}
+\end{lstlisting}
+
+\paragraph{Series Sum : } Subtractive cancellation is a dominant source of errors in the sum of a series containing alternative signs. Consider for an example , a finite series,
+\begin{equation}
+S^{(1)}_N = \sum_{n=1}^{2N} (-1)^n \frac{n}{n+1}.
+\end{equation}
+The above sum can be divided into even and odd values of $n$ separately, which gives,
+
+\begin{equation}
+S^{(2)}_N = - \sum_{n=1}^{N} \frac{2n-1}{2n} + \sum_{n=1}^{N}\frac{2n}{2n+1}.
+\end{equation}
+Sum $S^{(2)}_N$ involves only subtraction of two series (without any alternative sign). Even this single subtraction might cause sufficient subtractive cancellation. Even this single subtraction can be avoided if the sum is written as 
+
+\begin{equation}
+S^{(3)}_N = \sum_{n=1}^{N} \frac{1}{2n(2n+1)}.
+\end{equation}
+Mathematically all of these sums i.e. $S^{(1)}_N$, $S^{(2)}_N$ and $S^{(3)}_N$ are equal, but they might give different numerical results. Listing \ref{list2} lists a C++ code to calculate $\text{log}_{10}|(S^{(1)}_N-S^{(3)}_N)/S^{(3)}_N|$ as a function of $\text{log}_{10}(N)$.
+
+\begin{lstlisting}[language=C++, caption= C++ code to calculate $\text{log}_{10}|(S^{(1)}_N-S^{(3)}_N)/S^{(3)}_N|$ as a function of $\text{log}_{10}(N)$., label= list2]
+/*
+Name  - Ishwar Singh
+Aim   - Error analysis in series sum.
+Email - ishwarsaini10@gmail.com
+*/
+
+/*C++ Directives*/
+#include<iostream>
+#include<stdio.h>
+#include<math.h>
+#include<iomanip>
+#include<fstream>
+
+
+float series1(int n){
+    int   i ;
+    float t ;
+    float s ;
+    s = t = -1.0/2.0  ;
+    for(i=1;  i<2*n;  i++){
+        t*=-(pow((i+1),2))/(i*(i+2))  ;
+        s+=t;
+    }
+    return(s);
+}
+
+float series2(int n){
+    int   i   ;
+    float t1  ;
+    float t2  ;
+    float s1  ;
+    float s2  ;
+    s1  = t1  = 1.0/2.0   ;
+    s2  = t2  = 2.0/3.0   ;
+    for(i=1;  i<n;  i++){
+        t1*=((2*i+1)*i)/((2*n-1)*(n+1))       ;
+        t2*=((2*i+2)*(2*i+1))/((2*i+3)*(2*i)) ;
+        s1+=t1;
+        s2+=t2;
+    }
+    return(s2-s1);
+}
+
+float series3(int n){
+    int   i ;
+    float t ;
+    float s ;
+    s = t = 1.0/6.0  ;
+    for(i=1;  i<n;  i++){
+        t*=(n*(2*n+1))/((n+1)*(2*n+3));
+        s+=t;
+    }
+    return(s);
+}
+int main(){
+    int N;
+    float s1_final  ;
+    float s2_final  ;
+    float s3_final  ;
+    std::ofstream myfile;
+    myfile.open("series1.dat");
+    std::cout <<  std::setprecision(7) << std::setw(10) ;
+
+    for(int N=1;  N<=100; N++){
+        s1_final  = series1(N);
+        s2_final  = series2(N);
+        s3_final  = series3(N);
+        myfile <<  log10(N)  <<  "\t"  <<  log10(abs((s1_final-s3_final)/s3_final))  <<  std::endl;
+    }
+    myfile.close();
+    return 0;
+}
+\end{lstlisting}
+Figure \ref{series_sum} shows the variation of $\text{log}_{10}|(S^{(1)}_N-S^{(3)}_N)/S^{(3)}_N|$ as a function of $\text{log}_{10}(N)$. The following observations can be made by analyzing this plot : 
+
+  \begin{itemize}
+     \item[--] Negative of the ordinate gives the number of significant figures used in the calculation. This variation of negative ordinate shows the loss of significance of the answer.
+     \item[--] There is a linear variation in the initial part of the plot which shows that the error due to subtractive cancellation is proportional to a power of $N$.
+  \end{itemize}  
+
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[height=7.0cm, width=11.0cm]{/home/ishwarsingh/Phd_Documents/Course_work/Tutorial/Report/Images/Errors_in_series_sum_06-11-2020_v2.pdf}
+  \caption{Variation of $\text{log}_{10}|(S^{(1)}_N-S^{(3)}_N)/S^{(3)}_N|$ as a function of $\text{log}_{10}(N)$.}
+  \label{series_sum}
+\end{figure}
+\pagebreak
+\paragraph{Errors in Spherical Bessel Functions: } Spherical Bessel functions are actually solutions of the differential equation,
+
+\begin{equation}
+  x^2 f^{\prime\prime}(x)+ 2x f^{\prime}(x)+[x^2-l(l+1)]f(x)=0.
+\end{equation}
+There are various methods to calculate the values of these functions. One of the methods is the numerical recursion relations method. These recursion relations can be used both ways i.e. upward recursion relation and downward recursion relations
+
+\begin{equation}
+  j_{l+1} = \frac{2l+1}{x}j_l(x) - j_{l-1}(x), \text{ (up)}
+\end{equation}
+
+\begin{equation}
+  j_{l-1} = \frac{2l+1}{x}j_l(x) - j_{l+1}(x) \text{ (down).}
+\end{equation}
+
+\begin{lstlisting}[language=C++, caption= C++ code to calculate the Bessel functions using upward and downward recursion relations and the associated errors., label= list2]
+/*
+ * Name - Ishwar Singh
+ * Aim  - To calculate the values and errors in Bessels functions using recursion relations.
+ * Date - 08.11.2020
+ * Emai - isingh@fnal.gov
+*/
+// C++ Directives
+#include<iostream>
+#include<stdio.h>
+#include<math.h>
+#include<cfloat>
+#include<iomanip>
+#include<fstream>
+
+float bessels_up (float x, int l){
+    int s = 25  ;
+    float a  = sin(x)/x ;
+    float b  = (sin(x)/pow(x,2))-cos(x)/x ;
+    float j[s]  = {a,b}  ;
+    for(int k = 1;  k<s-1;  k++){
+        j[k+1]  = ((2*k+1)/x)*j[k]-j[k-1];
+    }
+    //float scale = (sin(x)/x)/j[0]; 
+    return j[l] ;
+}
+
+float bessels_down (float x, int l){
+    int s = 25  ;
+    float j[s]  = {}  ;
+          j[23] = 1.0 ;
+          j[24] = 1.0 ;
+    for(int k = s-2;  k>0;  k--){
+        j[k-1]  = ((2*k+1)/x)*j[k]-j[k+1];
+    }
+    float scale = (sin(x)/x)/j[0]; 
+    return j[l]*scale ;
+}
+int main(){
+    float x ;
+    int i   ;
+    std::ofstream my_file;
+    my_file.open("Bessels.txt");
+    for(int i =  0;  i<=25;  i++){
+        x = 1.0;
+        my_file <<  std::fixed  <<  std::setprecision(7)  <<  i <<  "\t"  <<  bessels_up(x,i) <<  "\t"  <<  bessels_down(x,i) <<  "\t"  << abs(bessels_up(x,i)-bessels_down(x,i))/(abs(bessels_up(x,i))+abs(bessels_down(x,i))) <<    std::endl;
+    }
+
+    return 0;
+}
+\end{lstlisting}
+
+
+
+%\begin{mybox}[colback=white, breakable]{Code to Find Machine Epsilon}
+%\lstinputlisting[language=C++]{/home/ishwarsingh/Phd_Documents/Course_work/Tutorial/Report/Codes/MEPS.cpp}
+%\end{mybox}
+
+
 
 
 

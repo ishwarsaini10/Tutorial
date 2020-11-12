@@ -2,8 +2,12 @@
 \BOOKMARK [1][-]{section.2}{Representation of Numbers in Computers}{}% 2
 \BOOKMARK [2][-]{subsection.2.1}{Integers}{section.2}% 3
 \BOOKMARK [2][-]{subsection.2.2}{Real Numbers}{section.2}% 4
-\BOOKMARK [1][-]{section.3}{Errors in Floating Point Computations}{}% 5
-\BOOKMARK [2][-]{subsection.3.1}{Types of Errors}{section.3}% 6
-\BOOKMARK [3][-]{subsubsection.3.1.1}{Bad Theory or Blunders}{subsection.3.1}% 7
-\BOOKMARK [3][-]{subsubsection.3.1.2}{Random Errors}{subsection.3.1}% 8
-\BOOKMARK [2][-]{subsection.3.2}{Approximation Errors}{section.3}% 9
+\BOOKMARK [1][-]{section.3}{Types of Errors}{}% 5
+\BOOKMARK [2][-]{subsection.3.1}{Bad Theory or Blunders}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.2}{Random Errors}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.3}{Approximation Errors}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.4}{Round-off Errors}{section.3}% 9
+\BOOKMARK [3][-]{subsubsection.3.4.1}{Round-off Error in a Single Step}{subsection.3.4}% 10
+\BOOKMARK [3][-]{subsubsection.3.4.2}{Round-off Error Propagation After N Steps}{subsection.3.4}% 11
+\BOOKMARK [3][-]{subsubsection.3.4.3}{Subtractive Cancellation}{subsection.3.4}% 12
+\BOOKMARK [3][-]{subsubsection.3.4.4}{Implementation and Assessment }{subsection.3.4}% 13
