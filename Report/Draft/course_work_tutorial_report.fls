@@ -463,11 +463,15 @@ INPUT /home/ishwarsingh/Phd_Documents/Course_work/Tutorial/Report/Images/bessels
 INPUT /home/ishwarsingh/Phd_Documents/Course_work/Tutorial/Report/Images/bessels_v2.pdf
 INPUT /home/ishwarsingh/Phd_Documents/Course_work/Tutorial/Report/Images/bessels_v2.pdf
 INPUT /home/ishwarsingh/Phd_Documents/Course_work/Tutorial/Report/Images/bessels_v2.pdf
+INPUT /home/ishwarsingh/Phd_Documents/Course_work/Tutorial/Report/Images/simpson.pdf
+INPUT /home/ishwarsingh/Phd_Documents/Course_work/Tutorial/Report/Images/simpson.pdf
+INPUT /home/ishwarsingh/Phd_Documents/Course_work/Tutorial/Report/Images/simpson.pdf
 INPUT course_work_tutorial_report.aux
 INPUT ./course_work_tutorial_report.out
 INPUT ./course_work_tutorial_report.out
 INPUT course_work_tutorial_report.run.xml
 OUTPUT course_work_tutorial_report.run.xml
+INPUT /usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 INPUT /usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb

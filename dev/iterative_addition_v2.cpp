@@ -18,13 +18,14 @@ float iterative_addition(float x, float dx, float true_val, int n){
 }
 
 int main(){
-    float x1  = 1E-7 ;
-    float dx1 = 1E-7 ;
+    float x1  = 10E-1 ;
+    float dx1 = 10E-1 ;
     float true_val  = 0.1 ;
     std::ofstream my_file ;
-    my_file.open("iterative_addition.txt");
+    my_file.open("iterative_addition_v2.txt");
     
-    for(int j = 1;  j<=10E6;  j+=1000){ 
+    for(int j = 1;  j<=10E6;  j*=10){ 
+        true_val  = x1*pow(10,j)  ;
         my_file <<  j <<  "\t"  << iterative_addition(x1,dx1,  true_val, j) <<  std::endl; 
     }
 

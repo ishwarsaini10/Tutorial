@@ -221,20 +221,6 @@ These errors are introduced due to typographical errors which might cause syntax
 \subsection{Random Errors}
 These errors are caused by random events such as fluctuations in electronic components of the system, cosmic ray interactions inside the system (very very unlikely though) or if someone pulls the plug of your system and the system shuts down. All these errors are very unlikely for small codes or programs. But these errors might be relevant for a week long simulations. This error is irrelevant for this project.
 
-\subsection{Approximation Errors}
-Consider we will have to use $\sin(x)$ in our program. Most of programming languages provides an in-built function which returns the values of such trigonometric functions. Mathematically these functions are actually an infinite series e.g. 
-$$\sin(x) = \sum^{\infty}_{n=1} \frac{(-1)^{n-1}x^{2n-1}}{(2n-1)!} (\text{ exact }).$$
-But it is not possible to compute all the terms in these functions. Most of the algorithms compute these sums to a finite number of terms i.e.
-\begin{align}
-\sin(x) &\approx \sum^{N}_{n=1} \frac{(-1)^{n-1}x^{2n-1}}{(2n-1)!} (\text{ algorithm }), && \\
-        &= sin(x)+\epsilon(x,N), && 
- \end{align}  
- where $\epsilon(x,N)$ is known as the \textit{approximation error} which is given as,
-$$\epsilon(x,N) = \sum^{\infty}_{N+1} \frac{(-1)^{n-1}x^{2n-1}}{(2n-1)!} .$$
-As these errors arise from the algorithms used to approximate the mathematics, these errors are also known as \textit{algorithmic errors}. It seems reasonable to say that approximation errors decreases with the increasing value of $N$ and vanish in the limit where $N \to \infty$. In general, the approximation errors, $\epsilon_{approx}$, varies as, 
-$$\epsilon_{approx} = \frac{\alpha}{N^{\beta}}.$$
-where $\alpha$ and $\beta$ are arbitrary constants.
-
 \subsection{Round-off Errors}
 A finite number of bits is available with the computer (23 bits for single precision and 53 bits for double precision data types) to store the mantissa of any number stored in it. The float data type can hold numbers up to 7 significant figure while the double data type can hold up to 16 significant numbers. If a float type variable is asked to store a number with 10 significant digits, computer will store a rounded-off 7 significant digit number in it's memory. The same happen with the double data type \footnote[1]{If the significant digits of number is greater than 16.}. This rounding off the numbers introduces errors in the computations which grows up with each arithmetic operation. The computer stores an exact number `$a$' is stored as `$a_c$' such that 
 $$a_c = a(1+\epsilon_a),$$
@@ -420,7 +406,7 @@ Figure \ref{series_sum} shows the variation of $\text{log}_{10}|(S^{(1)}_N-S^{(3
   \caption{Variation of $\text{log}_{10}|(S^{(1)}_N-S^{(3)}_N)/S^{(3)}_N|$ as a function of $\text{log}_{10}(N)$.}
   \label{series_sum}
 \end{figure}
-\pagebreak
+
 \paragraph{Errors in Spherical Bessel Functions: } Spherical Bessel functions are actually solutions of the differential equation,
 
 \begin{equation}
@@ -488,12 +474,118 @@ int main(){
 }
 \end{lstlisting}
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{/home/ishwarsingh/Phd_Documents/Course_work/Tutorial/Report/Images/bessels_v1.pdf}
+  \caption{Bessel functions using upward and downward recursion relations.}
+  \label{fig:bessel_v1}
+\end{figure}
 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{/home/ishwarsingh/Phd_Documents/Course_work/Tutorial/Report/Images/bessels_v2.pdf}
+  \caption{Subtractive cancellation errors in Bessel functions.}
+  \label{fig:bessel_v2}
+\end{figure}
 
 %\begin{mybox}[colback=white, breakable]{Code to Find Machine Epsilon}
 %\lstinputlisting[language=C++]{/home/ishwarsingh/Phd_Documents/Course_work/Tutorial/Report/Codes/MEPS.cpp}
-%\end{mybox}
+%\end{mybox}b
 
+\textbf{Observations : }
+  \begin{itemize}
+    \item Figure \ref{fig:bessel_v1} shows that both the upward and downward recursion methods converge in some region of the plot. After $l=5$, the upward recursion begins to diverge because of the fact that in the upward recursion method, two large numbers are subtracted to give small numbers and hence subtractive cancellation is present. However, this is not the case with downward recursion relation.
+
+    \item Figure \ref{fig:bessel_v2} shows the variation of subtractive cancellation errors in Bessel function. The linear variation shows that the error varies as power of $l$. 
+  \end{itemize}
+
+\paragraph{Iterative Addition : } This is yet another example of propagation of round-off errors after each calculation step. The algorithm used is,
+$$x_{n+1}= x_n + dx$$ 
+The C++ code simply calculates the final answer for a given $x_n$, $dx$ for a fixed value of $n=10^6$ and compares the numerical answer with the actual answer.
+
+ \begin{lstlisting}[language=C++, caption= C++ code to implement iterative addition algorithm., label= list2]
+#include<iostream>
+#include<stdio.h>
+#include<math.h>
+#include<cfloat>
+#include<iomanip>
+#include<fstream>
+
+void iterative_addition(float x, float dx, float true_val){
+    float temp  = x ;
+    for (int i=1;i<=10E6;i++){
+        x+=dx;
+    }
+    std::cout <<  temp  <<  "\t"  <<  dx  <<  "\t" << x <<  "\t"  << abs((true_val-x)/true_val) <<     std::endl;
+}
+
+int main(){
+    float x1  = 0.1 ;
+    float dx1 = 0.1 ;
+    float x2  = 0.01  ;
+    float dx2 = 0.01  ;
+    float x3  = 0.001 ;
+    float dx3 = 0.001 ;
+    float x4  = 1E-7  ;
+    float dx4 = 1.0E-7;  
+    iterative_addition(x1,dx1,  10E5);
+    iterative_addition(x2,dx2,  10E4);
+    iterative_addition(x3,dx3,  10E3);
+    iterative_addition(x4,dx4,  10E-1);
+
+    return 0;
+}
+\end{lstlisting} 
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+\textbf{x} & \textbf{dx} & \textbf{Numerical Value} & \textbf{True Value} & \textbf{Relative Error} \\
+\hline
+0.1        & 0.1         & 1.0879E+06               & 10E+5               & 0.0879371               \\
+0.01       & 0.01        & 95681                    & 10E+4               & 0.0431905               \\
+0.001      & 0.001       & 9780.21                  & 10E+3               & 0.0219795               \\
+1E-7       & 1E-7        & 1.06477                  & 10E-1               & 0.0647676 \\
+\hline             
+\end{tabular}
+\caption{Comparison of true and numerical values of iterative addition.}
+\label{tab:my-table}
+\end{table}
+
+\subsection{Approximation Errors}
+Consider we will have to use $\sin(x)$ in our program. Most of programming languages provides an in-built function which returns the values of such trigonometric functions. Mathematically these functions are actually an infinite series e.g. 
+$$\sin(x) = \sum^{\infty}_{n=1} \frac{(-1)^{n-1}x^{2n-1}}{(2n-1)!} (\text{ exact }).$$
+But it is not possible to compute all the terms in these functions. Most of the algorithms compute these sums to a finite number of terms i.e.
+\begin{align}
+\sin(x) &\approx \sum^{N}_{n=1} \frac{(-1)^{n-1}x^{2n-1}}{(2n-1)!} (\text{ algorithm }), && \\
+        &= sin(x)+\epsilon(x,N), && 
+ \end{align}  
+ where $\epsilon(x,N)$ is known as the \textit{approximation error} which is given as,
+$$\epsilon(x,N) = \sum^{\infty}_{N+1} \frac{(-1)^{n-1}x^{2n-1}}{(2n-1)!} .$$
+As these errors arise from the algorithms used to approximate the mathematics, these errors are also known as \textit{algorithmic errors}. It seems reasonable to say that approximation errors decreases with the increasing value of $N$ and vanish in the limit where $N \to \infty$. In general, the approximation errors, $\epsilon_{approx}$, varies as, 
+$$\epsilon_{approx} = \frac{\alpha}{N^{\beta}}.$$
+where $\alpha$ and $\beta$ are arbitrary constants.
+
+\subsubsection{General Algorithm to Compute Errors}
+
+\section{Interaction of Errors in Computations}
+Numerical algorithms play a pivotal role in modern simulations and calculations. However, it is important to study the convergence and precision of the algorithms chosen. In a traditional physics laboratory, true value of the physical quantity is generally known. This makes the calculations of errors and uncertainties a bit easier to compute. This however is not the case with most of the numerical algorithm. Then, the computation of errors or uncertainties gets tricky. Let us assume that an algorithm takes $N$ steps to complete, then the total error, $\epsilon_{t}$, is given as,
+
+\begin{align}
+\epsilon_{t} &= \epsilon_{approx} + \epsilon_{ro} && \\
+   \epsilon_{t}& = \frac{\alpha}{N^{\beta}} + \sqrt N \epsilon_m &&  
+\end{align}
+
+\subsection{Implementation and Assessment}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{/home/ishwarsingh/Phd_Documents/Course_work/Tutorial/Report/Images/simpson.pdf}
+  \caption{Errors in Simpson's rule of integration.}
+  \label{fig:simpson}
+\end{figure}
 
 
 

@@ -1,4 +1,8 @@
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Variation of $\text {log}_{10}|(S^{(1)}_N-S^{(3)}_N)/S^{(3)}_N|$ as a function of $\text {log}_{10}(N)$.\relax }}{10}{figure.caption.3}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Variation of $\text {log}_{10}|(S^{(1)}_N-S^{(3)}_N)/S^{(3)}_N|$ as a function of $\text {log}_{10}(N)$.\relax }}{9}{figure.caption.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Three flavor $\nu _\mu \to \nu _\mu $ survival probabilities in both mass hierarchies in vacuum.\relax }}{12}{figure.caption.4}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Bessel functions using upward and downward recursion relations.\relax }}{11}{figure.caption.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Subtractive cancellation errors in Bessel functions.\relax }}{12}{figure.caption.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Errors in Simpson's rule of integration.\relax }}{15}{figure.caption.7}%
