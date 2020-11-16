@@ -16,5 +16,190 @@
   {}
 \endgroup
 
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{landau2008survey}{book}{}
+      \name{author}{4}{}{%
+        {{hash=3edeebf7f1eb1d1193bde49cc9f07554}{%
+           family={Landau},
+           familyi={L\bibinitperiod},
+           given={Rubin\bibnamedelima H},
+           giveni={R\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=6d7dd26dcd27595dca3bf07784eb8f6e}{%
+           family={Paez},
+           familyi={P\bibinitperiod},
+           given={Jose},
+           giveni={J\bibinitperiod}}}%
+        {{hash=17aad94c8ddf956f66c8c5c5b1af00aa}{%
+           family={Mej{ı́}a},
+           familyi={M\bibinitperiod},
+           given={Manuel\bibnamedelimb Jos{é}\bibnamedelima P{á}ez},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=a3df2e88aca7261a9608da39f638274f}{%
+           family={Bordeianu},
+           familyi={B\bibinitperiod},
+           given={Cristian\bibnamedelima C},
+           giveni={C\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Princeton University Press}%
+      }
+      \strng{namehash}{ecf54333ab846e7f74bb9501620a433e}
+      \strng{fullhash}{2b80b8476a415f000969d0bc7a373cc1}
+      \strng{bibnamehash}{ecf54333ab846e7f74bb9501620a433e}
+      \strng{authorbibnamehash}{ecf54333ab846e7f74bb9501620a433e}
+      \strng{authornamehash}{ecf54333ab846e7f74bb9501620a433e}
+      \strng{authorfullhash}{2b80b8476a415f000969d0bc7a373cc1}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{A survey of computational physics: introductory computational science}
+      \field{year}{2008}
+      \true{nocite}
+    \endentry
+    \entry{fadnavis1998some}{report}{}
+      \name{author}{1}{}{%
+        {{hash=6fc713a6a660adaae72b299f8011572c}{%
+           family={Fadnavis},
+           familyi={F\bibinitperiod},
+           given={Suvarna},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{6fc713a6a660adaae72b299f8011572c}
+      \strng{fullhash}{6fc713a6a660adaae72b299f8011572c}
+      \strng{bibnamehash}{6fc713a6a660adaae72b299f8011572c}
+      \strng{authorbibnamehash}{6fc713a6a660adaae72b299f8011572c}
+      \strng{authornamehash}{6fc713a6a660adaae72b299f8011572c}
+      \strng{authorfullhash}{6fc713a6a660adaae72b299f8011572c}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Some Numerical Experiments on Round-Off Error Growth in Finite Precision Numerical Computation}
+      \field{type}{techreport}
+      \field{year}{1998}
+      \true{nocite}
+    \endentry
+    \entry{goldberg1991every}{article}{}
+      \name{author}{1}{}{%
+        {{hash=d55a57c88a14828a53b9e8db48c889d1}{%
+           family={Goldberg},
+           familyi={G\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {ACM New York, NY, USA}%
+      }
+      \strng{namehash}{d55a57c88a14828a53b9e8db48c889d1}
+      \strng{fullhash}{d55a57c88a14828a53b9e8db48c889d1}
+      \strng{bibnamehash}{d55a57c88a14828a53b9e8db48c889d1}
+      \strng{authorbibnamehash}{d55a57c88a14828a53b9e8db48c889d1}
+      \strng{authornamehash}{d55a57c88a14828a53b9e8db48c889d1}
+      \strng{authorfullhash}{d55a57c88a14828a53b9e8db48c889d1}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{ACM Computing Surveys (CSUR)}
+      \field{number}{1}
+      \field{title}{What every computer scientist should know about floating-point arithmetic}
+      \field{volume}{23}
+      \field{year}{1991}
+      \true{nocite}
+      \field{pages}{5\bibrangedash 48}
+      \range{pages}{44}
+    \endentry
+    \entry{numeric_ana_1}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=3afb5fb9198a9a3825fff3f37e894daf}{%
+           family={O’Donohoe},
+           familyi={O\bibinitperiod},
+           given={M.R.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{3afb5fb9198a9a3825fff3f37e894daf}
+      \strng{fullhash}{3afb5fb9198a9a3825fff3f37e894daf}
+      \strng{bibnamehash}{3afb5fb9198a9a3825fff3f37e894daf}
+      \strng{authorbibnamehash}{3afb5fb9198a9a3825fff3f37e894daf}
+      \strng{authornamehash}{3afb5fb9198a9a3825fff3f37e894daf}
+      \strng{authorfullhash}{3afb5fb9198a9a3825fff3f37e894daf}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{{Computer Laboratory, University of Cambridge}}
+      \field{title}{Numerical Analysis I}
+      \field{year}{2009-2010}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://www.cl.cam.ac.uk/teaching/1011/FPComp/na1seq-pfb.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.cl.cam.ac.uk/teaching/1011/FPComp/na1seq-pfb.pdf
+      \endverb
+    \endentry
+    \entry{fpc}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=d3f176617ede52c6f4182f70aebc9b67}{%
+           family={Greaves},
+           familyi={G\bibinitperiod},
+           given={D\bibnamedelima J},
+           giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{d3f176617ede52c6f4182f70aebc9b67}
+      \strng{fullhash}{d3f176617ede52c6f4182f70aebc9b67}
+      \strng{bibnamehash}{d3f176617ede52c6f4182f70aebc9b67}
+      \strng{authorbibnamehash}{d3f176617ede52c6f4182f70aebc9b67}
+      \strng{authornamehash}{d3f176617ede52c6f4182f70aebc9b67}
+      \strng{authorfullhash}{d3f176617ede52c6f4182f70aebc9b67}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{{Computer Laboratory, University of Cambridge}}
+      \field{title}{Floating Point Computation}
+      \field{year}{2010-2011}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://www.cl.cam.ac.uk/teaching/1011/FPComp/fpcomp10slides.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.cl.cam.ac.uk/teaching/1011/FPComp/fpcomp10slides.pdf
+      \endverb
+    \endentry
+    \entry{Keinert}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=089438769664e34439956e1e0b32f213}{%
+           family={Keinert},
+           familyi={K\bibinitperiod},
+           given={Fritz},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{089438769664e34439956e1e0b32f213}
+      \strng{fullhash}{089438769664e34439956e1e0b32f213}
+      \strng{bibnamehash}{089438769664e34439956e1e0b32f213}
+      \strng{authorbibnamehash}{089438769664e34439956e1e0b32f213}
+      \strng{authornamehash}{089438769664e34439956e1e0b32f213}
+      \strng{authorfullhash}{089438769664e34439956e1e0b32f213}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{{Department of Mathematics, Iowa state University}}
+      \field{title}{Computer Arithmetic and Computational Errors}
+      \field{year}{2008}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://orion.math.iastate.edu/keinert/computation_notes/chapter2.pdf
+      \endverb
+      \verb{url}
+      \verb https://orion.math.iastate.edu/keinert/computation_notes/chapter2.pdf
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
 \endinput
 

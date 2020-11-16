@@ -1,0 +1,19 @@
+% Encoding: UTF-8
+
+@Book{landau2008survey,
+  author    = {Landau, Rubin H and Paez, Jose and Mej{\'\i}a, Manuel Jos{\'e} P{\'a}ez and Bordeianu, Cristian C},
+  publisher = {Princeton University Press},
+  title     = {A survey of computational physics: introductory computational science},
+  year      = {2008},
+}
+
+@TechReport{fadnavis1998some,
+  author = {Fadnavis, Suvarna},
+  title  = {Some Numerical Experiments on Round-Off Error Growth in Finite Precision Numerical Computation},
+  year   = {1998},
+}
+
+@Article{,
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}

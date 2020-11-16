@@ -1,0 +1,10 @@
+% Encoding: UTF-8
+
+@Book{landau2008survey,
+  author    = {Landau, Rubin H and Paez, Jose and Mej{\'\i}a, Manuel Jos{\'e} P{\'a}ez and Bordeianu, Cristian C},
+  publisher = {Princeton University Press},
+  title     = {A survey of computational physics: introductory computational science},
+  year      = {2008},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}

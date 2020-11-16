@@ -129,7 +129,7 @@
 %\mbox{}
 \begin{titlepage}
     \begin{center}
-        \title{\textbf{Ph.D. Coursework Tutorial Report} \\ Errors and Uncertainties in Computations}
+        \title{\textbf{Ph.D. Coursework Tutorial Report} \\ Errors and Uncertainties in Numerical Computations}
         \vspace{1.5cm}
         %\subtitle{Phenomenoloy of Neutrino Oscillations using Long Baseline Neutrino Experiments}
 		\author{\textsc{\textbf{Ishwar Singh}}\\ \\ \textit{ Submitted to:} \textsc{\textbf{Prof. Awadesh Prasad}}}
@@ -504,7 +504,7 @@ int main(){
 $$x_{n+1}= x_n + dx$$ 
 The C++ code simply calculates the final answer for a given $x_n$, $dx$ for a fixed value of $n=10^6$ and compares the numerical answer with the actual answer.
 
- \begin{lstlisting}[language=C++, caption= C++ code to implement iterative addition algorithm., label= list2]
+ \begin{lstlisting}[language=C++, caption= C++ code to implement iterative addition algorithm., label= list3]
 #include<iostream>
 #include<stdio.h>
 #include<math.h>
@@ -569,27 +569,195 @@ $$\epsilon_{approx} = \frac{\alpha}{N^{\beta}}.$$
 where $\alpha$ and $\beta$ are arbitrary constants.
 
 \subsubsection{General Algorithm to Compute Errors}
+In a traditional physics laboratory experiment, the true value of the physical quantity measure in an experiment is generally known to us and hence error computation is a bit easier. However, this is not the case in a scientific computation. Therefore, some special techniques are utilized to calculate errors at each computational step. Let's assume $\mathcal{A}$ is the true value of any variable, if $A(N)$ is value of that variable after $N$ computational steps, then,
+$$A(N) \simeq \mathcal{A} + \frac{\alpha}{N^{\beta}}.$$
+One of the techniques to find the errors after each computational steps is to compute,
+$$A(2N)-A(N) \simeq \frac{\alpha}{N^{\beta}},$$
+and then plotting $\text{log}_{10}\left|[A(N)-A(2N)]/A(2N) \right|$ as a function of $\text{log}_{10}N$. This plot helps the programmer to determine the convergence of the algorithm.
+
+\subsubsection{Implementation and Assessment}
+\paragraph{Errors in $\sin(x)$ Series : } The Taylor series expansion of $\sin(x)$ is given as,
+
+$$\sin(x)=\sum_{n=1}^{\infty} \frac{(-1)^{n-1} x^{2n-1}}{(2n-1)!}$$
+Listing \ref{list5} lists a C++ code to calculate the approximation errors in the series sum which calculates errors as function of $N$ for various values of $x$.
+
+\begin{lstlisting}[language=C++, caption= C++ code to calculate the approximation errors in the series sum of $\sin(x)$., label= list5]
+/*
+ * Name - Ishwar Singh
+ * Aim  - To calculate the errors in sin sum series for different values of x.
+ * Email  - isingh@fnal.gov
+ * Date - 07.11.2020
+ */
+
+//  C++ Directives
+
+#include<iostream>
+#include<stdio.h>
+#include<math.h>
+#include<cfloat>
+#include<iomanip>
+#include<fstream>
+
+/*  Function to find sum of sin series for a given and number of terms to be added  */
+float sin_series(int N, float x){
+    float s   ;
+    float t   ;
+    s = t = x ;
+    for(int i=1;  i<N;  i++){
+        t*=-x*x/((2*i+1)*2*i);
+        s+=t;
+    } 
+    return s;
+}
+
+/*  Main function starts here */
+int main(){
+    std::ofstream my_file                   ; /*  Output file stream */
+    std::string ini = "sin_series_file_v2_" ; 
+    std::string txt = ".txt"                ;
+    int i=1                                 ;
+    for(int i=1;  i<=100;  i+=5){
+        std::string final_name  = ini + std::to_string(i) + txt;
+        std::ofstream my_file1              ;
+        my_file1.open(final_name)           ;
+        float x = i                         ;
+        std::cout <<  std::fixed            ;
+        std::cout <<  std::setprecision(7)  <<  x <<  std::endl ;
+        for (int i=1; i<=100;  i++){
+            my_file <<  std::setprecision(7)  <<  i <<  "\t"  <<  abs(sin_series(i,x)-sin_series(2*i,x)) <<  std::endl;
+            my_file1 <<  std::setprecision(7)  <<  i <<  "\t"  <<  abs(sin_series(i,x)-sin_series(2*i,x)) <<  std::endl;
+        }
+    }
+    return(0);
+}
+\end{lstlisting} 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{/home/ishwarsingh/Phd_Documents/Course_work/Tutorial/Report/Images/sin_series_error_v1.pdf}
+  \caption{Approximation errors in series sum of $\sin(x)$ for $x=1$ to $x=20$.}
+  \label{fig:sin_series_error1}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.3]{/home/ishwarsingh/Phd_Documents/Course_work/Tutorial/Report/Images/sin_series_error_v2.pdf}
+  \caption{Approximation errors in series sum of $\sin(x)$ for $10<x<100$.}
+  \label{fig:sin_series_error2}
+\end{figure}
+
+\paragraph{Observations:}
+  \begin{itemize}
+    \item Note that the slope of the curve is negative for small values of $x$ i.e. the series converges for small values of x. Also there is no sharp dip in errors for small x which implies the absence of \emph{subtractive cancellation} in this range of $x$ values.
+    \item The slope of the plot becomes positive after $x=5$ i.e. the errors increases with each computational step.
+    \item Figure \ref{fig:sin_series_error2} shows that for very large values of $x$ the algorithm never converges
+  \end{itemize}  
+
+
+
 
 \section{Interaction of Errors in Computations}
-Numerical algorithms play a pivotal role in modern simulations and calculations. However, it is important to study the convergence and precision of the algorithms chosen. In a traditional physics laboratory, true value of the physical quantity is generally known. This makes the calculations of errors and uncertainties a bit easier to compute. This however is not the case with most of the numerical algorithm. Then, the computation of errors or uncertainties gets tricky. Let us assume that an algorithm takes $N$ steps to complete, then the total error, $\epsilon_{t}$, is given as,
+Numerical algorithms play a pivotal role in modern simulations and calculations. However, it is important to study the convergence and precision of the algorithms chosen. In a traditional physics laboratory, true value of the physical quantity is generally known. This makes the calculations of errors and uncertainties a bit easier to compute. This however is not the case with most of the numerical algorithm. Then, the computation of errors or uncertainties gets tricky. Let us assume that an algorithm takes $N$ steps to complete, then the total error, $\epsilon_{t}$, in general, is given as,
 
 \begin{align}
 \epsilon_{t} &= \epsilon_{approx} + \epsilon_{ro} && \\
-   \epsilon_{t}& = \frac{\alpha}{N^{\beta}} + \sqrt N \epsilon_m &&  
+   \epsilon_{t}& = \frac{\alpha}{N^{\beta}} + \epsilon_m N^{\gamma}  &&  
 \end{align}
 
 \subsection{Implementation and Assessment}
+To study the interaction of errors in scientific computation, consider a finite interaction of the following kind,
+
+$$\int_{0}^{1} e^{-x}dx.$$
+Analytically, we know that,
+
+$$\int_{0}^{1} e^{-x}dx = 1-e^{-1} = 0.63212055.$$
+Listing \ref{list6} lists a C++ code to calculate errors in Simpson's method of numerical integration. Figure \ref{fig:simpson} shows the variation of errors as a function of $N$ - the number of steps involved in the computation. 
+
+
+\begin{lstlisting}[language=C++, caption= C++ code to calculate errors in Simpson's method of numerical integration., label= list6]
+/*
+ * Name - Ishwar Singh
+ * Email  - isingh@fnal.gov
+ * Date - 07.11.2020
+ */
+
+// CPP program for simpson's 1/3 rule 
+#include <iostream> 
+#include <fstream> 
+#include <math.h> 
+#include <iomanip> 
+using namespace std; 
+  
+// Function to calculate f(x) 
+float func(float x) 
+{ 
+    return exp(-x); 
+} 
+  
+// Function for approximate integral 
+float simpsons_(float ll, float ul, int n) 
+{ 
+    // Calculating the value of h 
+    float h = (ul - ll) / n; 
+  
+    // Array for storing value of x and f(x) 
+    float x[300], fx[300]; 
+  
+    // Calculating values of x and f(x) 
+    for (int i = 0; i <= n; i++) { 
+        x[i] = ll + i * h; 
+        fx[i] = func(x[i]); 
+    } 
+  
+    // Calculating result 
+    float res = 0; 
+    for (int i = 0; i <= n; i++) { 
+        if (i == 0 || i == n) 
+            res += fx[i]; 
+        else if (i % 2 != 0) 
+            res += 4 * fx[i]; 
+        else
+            res += 2 * fx[i]; 
+    } 
+    res = res * (h / 3); 
+    return res; 
+} 
+  
+// Driver program 
+int main() 
+{ 
+    float lower_limit = 0; // Lower limit 
+    float upper_limit = 1; // Upper limit 
+    int n ; // Number of interval 
+    std::ofstream my_file ;
+    float true_val  = 0.63212055    ;
+    my_file.open("simpson_v1.txt")  ;
+
+    for(n=2;  n<=300;  n+=4){
+    my_file <<  std::setprecision(7)<< n << "\t"  << abs((true_val - simpsons_(lower_limit, upper_limit, n))/true_val)  <<  std::endl; 
+    }
+    return 0; 
+} 
+\end{lstlisting} 
+
 
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.5]{/home/ishwarsingh/Phd_Documents/Course_work/Tutorial/Report/Images/simpson.pdf}
-  \caption{Errors in Simpson's rule of integration.}
+  \caption{Errors in Simpson's rule of numerical integration.}
   \label{fig:simpson}
 \end{figure}
 
+\subsubsection{Observations}
+  \begin{itemize}
+    \item Observe the rapid decrease in the errors for smaller $N$ values. This is a characteristics of \emph{approximation errors} which varies as $\propto\frac{\alpha}{N^{\beta}}$ with $\beta>0$.
+    \item As the value of $N$ increases, a slow, irregular increase is observed. This is because of the fact that, in general, the \emph{round-off errors} varies as $\propto N^{\gamma}$, with $\gamma>0$.
+    \item This curve gives an \emph{optimized value of the number of iterations} to stop the algorithm.
 
+  \end{itemize}  
 
-
-
-
+  \section{Conclusions}
+  It can now be concluded that every scientific computation is prone to errors and uncertainties similar to a measurement in a traditional physics laboratory. These errors propagate at each computation step which might lead to a \emph{garbage value}, which of-course is of no use. As the role of numerical computation is becoming more and more pivotal, the subtleties of these errors must be emphasized. It will be a total waste of huge computing powers if the result is a garbage value. Therefore, it is important to analyze the role of each and every source of errors in scientific computation before actually jumping to trust their results.  \nocite{landau2008survey} \nocite{fadnavis1998some} \nocite{goldberg1991every} \nocite{numeric_ana_1} \nocite{fpc} \nocite{Keinert}
+\pagebreak
+\printbibliography
 \end{document}

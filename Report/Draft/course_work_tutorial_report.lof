@@ -5,4 +5,8 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Subtractive cancellation errors in Bessel functions.\relax }}{12}{figure.caption.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Errors in Simpson's rule of integration.\relax }}{15}{figure.caption.7}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Approximation errors in series sum of $\sin (x)$ for $x=1$ to $x=20$.\relax }}{16}{figure.caption.7}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Approximation errors in series sum of $\sin (x)$ for $10<x<100$.\relax }}{17}{figure.caption.8}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Errors in Simpson's rule of numerical integration.\relax }}{20}{figure.caption.9}%

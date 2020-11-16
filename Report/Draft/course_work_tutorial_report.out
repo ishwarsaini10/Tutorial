@@ -12,5 +12,8 @@
 \BOOKMARK [3][-]{subsubsection.3.3.4}{Implementation and Assessment }{subsection.3.3}% 12
 \BOOKMARK [2][-]{subsection.3.4}{Approximation Errors}{section.3}% 13
 \BOOKMARK [3][-]{subsubsection.3.4.1}{General Algorithm to Compute Errors}{subsection.3.4}% 14
-\BOOKMARK [1][-]{section.4}{Interaction of Errors in Computations}{}% 15
-\BOOKMARK [2][-]{subsection.4.1}{Implementation and Assessment}{section.4}% 16
+\BOOKMARK [3][-]{subsubsection.3.4.2}{Implementation and Assessment}{subsection.3.4}% 15
+\BOOKMARK [1][-]{section.4}{Interaction of Errors in Computations}{}% 16
+\BOOKMARK [2][-]{subsection.4.1}{Implementation and Assessment}{section.4}% 17
+\BOOKMARK [3][-]{subsubsection.4.1.1}{Observations}{subsection.4.1}% 18
+\BOOKMARK [1][-]{section.5}{Conclusions}{}% 19
