@@ -1,11 +1,11 @@
 # Fdb version 3
-["biber course_work_tutorial_report"] 1605517587 "course_work_tutorial_report.bcf" "course_work_tutorial_report.bbl" "course_work_tutorial_report" 1605517589
+["biber course_work_tutorial_report"] 1605517587 "course_work_tutorial_report.bcf" "course_work_tutorial_report.bbl" "course_work_tutorial_report" 1605588713
   "References.bib" 1605517584 1731 cc4b76ddb54f9df6b29b2f806068fed1 ""
-  "course_work_tutorial_report.bcf" 1605517589 101068 a8e2cd857fb68ff76ae434b8b4a1d691 "pdflatex"
+  "course_work_tutorial_report.bcf" 1605588713 101068 a8e2cd857fb68ff76ae434b8b4a1d691 "pdflatex"
   (generated)
   "course_work_tutorial_report.bbl"
   "course_work_tutorial_report.blg"
-["pdflatex"] 1605517587 "course_work_tutorial_report.tex" "course_work_tutorial_report.pdf" "course_work_tutorial_report" 1605517589
+["pdflatex"] 1605588712 "course_work_tutorial_report.tex" "course_work_tutorial_report.pdf" "course_work_tutorial_report" 1605588713
   "/etc/texmf/web2c/texmf.cnf" 1602849509 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/ishwarsingh/Phd_Documents/Course_work/Tutorial/Report/Images/Errors_in_series_sum_06-11-2020_v2.pdf" 1604639644 12222 2e69356aed12d8f689648bcacdead44d ""
   "/home/ishwarsingh/Phd_Documents/Course_work/Tutorial/Report/Images/bessels_v1.pdf" 1605181224 4707 beb73b7a8fa4e3302105277386661543 ""
@@ -313,21 +313,21 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1602850775 4770781 1ed1abab22da9c3e2cc82e4db562318b ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1602850798 8258042 95ed24266aa93df63c99a217ef1bb1cb ""
   "University_of_delhi_logo.png" 1604915908 1092745 1f65a2c6ae802ad4a17e31afb25f8755 ""
-  "course_work_tutorial_report.aux" 1605517589 11445 803c56734c4835dc37665d3c02e14360 "pdflatex"
+  "course_work_tutorial_report.aux" 1605588713 11445 803c56734c4835dc37665d3c02e14360 "pdflatex"
   "course_work_tutorial_report.bbl" 1605517587 8096 3cc94c76915d9a8d284b17181c80d437 "biber course_work_tutorial_report"
-  "course_work_tutorial_report.lof" 1605517589 1139 45da086c6f4b726f84e268f3cb205f83 "pdflatex"
+  "course_work_tutorial_report.lof" 1605588713 1139 45da086c6f4b726f84e268f3cb205f83 "pdflatex"
   "course_work_tutorial_report.nls" 0 -1 0 ""
-  "course_work_tutorial_report.out" 1605517589 1377 6147d433aa2cfa5c0737231383d3c247 "pdflatex"
-  "course_work_tutorial_report.run.xml" 1605517589 2466 bdd23cf7ea4fc7a365680bc995a671d3 "pdflatex"
-  "course_work_tutorial_report.tex" 1605517426 35363 9237ff8d3a01c4ad80315999ef940b81 ""
-  "course_work_tutorial_report.toc" 1605517589 3158 4f77df299cedda0a25ef468e93cf8686 "pdflatex"
+  "course_work_tutorial_report.out" 1605588713 1377 6147d433aa2cfa5c0737231383d3c247 "pdflatex"
+  "course_work_tutorial_report.run.xml" 1605588713 2466 bdd23cf7ea4fc7a365680bc995a671d3 "pdflatex"
+  "course_work_tutorial_report.tex" 1605588710 35363 9237ff8d3a01c4ad80315999ef940b81 ""
+  "course_work_tutorial_report.toc" 1605588713 3158 4f77df299cedda0a25ef468e93cf8686 "pdflatex"
   (generated)
-  "course_work_tutorial_report.log"
-  "course_work_tutorial_report.lof"
   "course_work_tutorial_report.pdf"
-  "course_work_tutorial_report.bcf"
-  "course_work_tutorial_report.aux"
-  "course_work_tutorial_report.nlo"
   "course_work_tutorial_report.toc"
+  "course_work_tutorial_report.nlo"
+  "course_work_tutorial_report.log"
   "course_work_tutorial_report.out"
+  "course_work_tutorial_report.aux"
+  "course_work_tutorial_report.bcf"
+  "course_work_tutorial_report.lof"
   "course_work_tutorial_report.run.xml"
